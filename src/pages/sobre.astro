@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { WHATSAPP_URL } from '../data/services';
+---
+
+<Layout
+  title="Sobre a Clínica"
+  description="Conheça a Ideal Centro Odontológico em Guaianases: odontologia integrativa com atendimento humanizado da Dra. Letícia Sales Soares (CRO 132568)."
+>
+
+  <section class="bg-warm-900 py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumb items={[
+        { label: 'Início', href: '/' },
+        { label: 'Sobre a Clínica' },
+      ]} />
+      <div class="max-w-3xl animate-on-scroll">
+        <span class="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-gold-400/60 mb-4">
+          <span class="w-8 h-[1px] bg-gold-500/40"></span>
+          Nossa História
+        </span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+          Cuidado que vai além<br />
+          <span class="bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent">do consultório</span>
+        </h1>
+        <p class="mt-6 text-lg text-white/50 leading-relaxed">
+          Nascemos da convicção de que odontologia é mais do que tratar dentes — é cuidar de pessoas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="animate-on-scroll slide-left">
+          <div class="relative">
+            <div class="absolute -inset-3 bg-gradient-to-br from-gold-100/40 to-transparent rounded-3xl"></div>
+            <div class="relative img-zoom rounded-2xl overflow-hidden">
+              <img src="/images/gallery-3.jpg" alt="Sala de espera elegante da Ideal Centro Odontológico" class="w-full aspect-[3/4] object-cover" loading="lazy" />
+            </div>
+          </div>
+        </div>
+        <div class="animate-on-scroll slide-right">
+          <span class="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-gold-600 mb-4">
+            <span class="w-8 h-[1px] bg-gold-400"></span>
+            Nossa Missão
+          </span>
+          <h2 class="text-3xl font-bold text-warm-900 leading-[1.1] mb-6">
+            Odontologia integrativa: saúde, estética e <span class="gold-text">bem-estar</span>
+          </h2>
+          <p class="text-warm-400 leading-relaxed mb-4">
+            A Ideal Centro Odontológico nasceu com uma missão clara: <strong class="text-warm-700">oferecer atendimento odontológico humanizado</strong> que considera o paciente como um todo.
+          </p>
+          <p class="text-warm-400 leading-relaxed mb-4">
+            Localizada no coração de Guaianases, Zona Leste de São Paulo, nossa clínica foi pensada para ser um espaço acolhedor onde cada paciente se sente seguro e respeitado.
+          </p>
+          <p class="text-warm-400 leading-relaxed">
+            Sob a liderança da Dra. Letícia Sales Soares, acreditamos que um sorriso bonito começa com saúde — e saúde começa com cuidado de verdade.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-20 lg:py-28 bg-warm-50 relative bg-watermark">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+      <SectionHeading label="Nossos Valores" title="O que nos guia todos os dias" />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 stagger">
+        {[
+          { icon: '❤️', title: 'Humanização', desc: 'Cada paciente é único. Ouvimos, acolhemos e respeitamos a individualidade de cada um.' },
+          { icon: '🔬', title: 'Excelência', desc: 'Investimos em atualização constante e tecnologia de ponta para os melhores resultados.' },
+          { icon: '🤝', title: 'Transparência', desc: 'Explicamos cada etapa do tratamento. Sem surpresas, sem letra miúda.' },
+          { icon: '🌱', title: 'Integralidade', desc: 'Olhamos para a saúde bucal como parte do bem-estar completo — corpo, mente e sorriso.' },
+        ].map((v) => (
+          <div class="luxury-card p-7 animate-on-scroll">
+            <span class="text-3xl block mb-5">{v.icon}</span>
+            <h3 class="font-bold text-warm-800 mb-2">{v.title}</h3>
+            <p class="text-sm text-warm-400 leading-relaxed">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Clinic Images -->
+  <section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="img-zoom rounded-2xl overflow-hidden animate-on-scroll"><img src="/images/gallery-2.jpg" alt="Consultório" class="w-full aspect-square object-cover" loading="lazy" /></div>
+        <div class="img-zoom rounded-2xl overflow-hidden animate-on-scroll"><img src="/images/gallery-3.jpg" alt="Recepção" class="w-full aspect-square object-cover" loading="lazy" /></div>
+        <div class="img-zoom rounded-2xl overflow-hidden animate-on-scroll"><img src="/images/gallery-4.jpg" alt="Equipamentos" class="w-full aspect-square object-cover" loading="lazy" /></div>
+        <div class="img-zoom rounded-2xl overflow-hidden animate-on-scroll"><img src="/images/gallery-5.jpg" alt="Fachada" class="w-full aspect-square object-cover" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20 bg-warm-900">
+    <div class="max-w-3xl mx-auto px-4 text-center animate-on-scroll">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Conheça nossa clínica pessoalmente</h2>
+      <p class="text-white/40 mb-8">Agende uma visita e veja como cuidamos de cada detalhe para o seu conforto.</p>
+      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white text-warm-900 font-bold px-8 py-4 rounded-full hover:bg-gold-50 transition-all btn-press">
+        Agendar Visita
+      </a>
+    </div>
+  </section>
+</Layout>

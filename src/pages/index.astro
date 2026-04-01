@@ -1,0 +1,430 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import Gallery from '../components/Gallery';
+import AnimatedCounter from '../components/AnimatedCounter';
+import { services, WHATSAPP_URL, PHONE, ADDRESS } from '../data/services';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Dentist',
+  name: 'Ideal Centro Odontológico',
+  description: 'Clínica odontológica integrativa em Guaianases, São Paulo. Dra. Letícia Sales Soares — CRO 132568. Ortodontia, implantes, lentes de resina, harmonização orofacial.',
+  url: 'https://idealcentroodontologico.com.br',
+  telephone: '+5511951407017',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Rua Lincoln Junqueira, 137',
+    addressLocality: 'São Paulo',
+    addressRegion: 'SP',
+    postalCode: '08410-000',
+    addressCountry: 'BR',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: -23.547472, longitude: -46.430844 },
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '09:00', closes: '18:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '14:00' },
+  ],
+  priceRange: '$$',
+  areaServed: { '@type': 'City', name: 'São Paulo' },
+  founder: { '@type': 'Person', name: 'Dra. Letícia Sales Soares', jobTitle: 'Cirurgiã-Dentista', identifier: 'CRO/SP 132568' },
+};
+---
+
+<Layout
+  title="Ideal Centro Odontológico — Dentista em Guaianases, São Paulo"
+  description="Clínica odontológica integrativa em Guaianases. Dra. Letícia Sales Soares (CRO 132568). Ortodontia, implantes, lentes de resina, harmonização orofacial. Agende pelo WhatsApp."
+  schema={schema}
+>
+
+  <!-- ============ HERO ============ -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden bg-warm-50">
+    <!-- Background decoration — watermark logo -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-20 left-10 w-[400px] h-[400px] opacity-[0.025]">
+        <img src="/images/bg-logo.jpg" alt="" class="w-full h-full object-contain" />
+      </div>
+      <div class="absolute bottom-10 right-[40%] w-[300px] h-[300px] opacity-[0.015] rotate-12">
+        <img src="/images/bg-logo.jpg" alt="" class="w-full h-full object-contain" />
+      </div>
+    </div>
+
+    <!-- Subtle gold gradient accent -->
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-gold-50/40 to-transparent pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-0 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+
+        <!-- Text Content -->
+        <div class="order-2 lg:order-1 max-w-xl">
+          <div class="animate-on-scroll">
+            <span class="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-gold-600 mb-6">
+              <span class="w-8 h-[1px] bg-gold-400"></span>
+              Guaianases — São Paulo
+            </span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-extrabold text-warm-900 leading-[1.05] tracking-tight animate-on-scroll">
+            Seu sorriso merece
+            <span class="block gold-text mt-1">cuidado de verdade</span>
+          </h1>
+
+          <p class="mt-7 text-lg text-warm-400 leading-relaxed animate-on-scroll">
+            Odontologia integrativa com atendimento humanizado. Tratamos cada paciente como único — porque cuidar de você é a nossa missão.
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-4 animate-on-scroll">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-3 bg-warm-900 text-white font-semibold px-8 py-4 rounded-full hover:bg-warm-800 transition-all btn-press text-[15px] tracking-wide"
+            >
+              <svg class="w-5 h-5 text-green-400" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+              </svg>
+              Agendar Consulta
+            </a>
+            <a
+              href="/servicos"
+              class="inline-flex items-center justify-center gap-2 border border-warm-200 text-warm-600 font-semibold px-8 py-4 rounded-full hover:border-gold-300 hover:text-gold-600 transition-all text-[15px]"
+            >
+              Nossos Serviços
+            </a>
+          </div>
+
+          <!-- Trust line -->
+          <div class="mt-10 flex items-center gap-4 animate-on-scroll">
+            <div class="flex -space-x-2">
+              <div class="w-8 h-8 bg-gold-100 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-gold-600">M</div>
+              <div class="w-8 h-8 bg-gold-100 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-gold-600">C</div>
+              <div class="w-8 h-8 bg-gold-100 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-gold-600">A</div>
+            </div>
+            <div>
+              <div class="flex gap-0.5">
+                {Array.from({ length: 5 }).map(() => (
+                  <svg class="w-3.5 h-3.5 text-gold-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                ))}
+              </div>
+              <p class="text-[11px] text-warm-400 mt-0.5">Pacientes satisfeitos</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="order-1 lg:order-2 animate-on-scroll slide-right">
+          <div class="relative">
+            <!-- Gold accent ring -->
+            <div class="absolute -inset-3 bg-gradient-to-br from-gold-200/30 via-transparent to-gold-100/20 rounded-[2rem] blur-sm"></div>
+            <div class="relative overflow-hidden rounded-[1.5rem] bg-white shadow-2xl shadow-warm-900/[0.06]">
+              <img
+                src="/images/hero.png"
+                alt="Dra. Letícia Sales Soares — Ideal Centro Odontológico"
+                class="w-full h-auto object-cover"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+            <!-- Floating badge -->
+            <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg shadow-warm-900/[0.08] p-4 border border-warm-100 animate-on-scroll scale-in">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gold-50 rounded-xl flex items-center justify-center">
+                  <svg class="w-5 h-5 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-warm-800">Dra. Letícia Sales Soares</p>
+                  <p class="text-[10px] text-warm-400">CRO/SP 132568</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST BAR ============ -->
+  <section class="py-10 border-y border-warm-100 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center gap-8 md:gap-16 items-center">
+        <div class="text-center animate-on-scroll">
+          <p class="text-[11px] uppercase tracking-[0.2em] text-warm-300 font-medium">Atendimento</p>
+          <p class="text-sm font-bold text-warm-700 mt-1">Particular</p>
+        </div>
+        <div class="w-px h-8 bg-warm-100 hidden md:block"></div>
+        <div class="text-center animate-on-scroll">
+          <p class="text-[11px] uppercase tracking-[0.2em] text-warm-300 font-medium">Horário</p>
+          <p class="text-sm font-bold text-warm-700 mt-1">Seg–Sáb</p>
+        </div>
+        <div class="w-px h-8 bg-warm-100 hidden md:block"></div>
+        <div class="text-center animate-on-scroll">
+          <p class="text-[11px] uppercase tracking-[0.2em] text-warm-300 font-medium">Localização</p>
+          <p class="text-sm font-bold text-warm-700 mt-1">Guaianases, SP</p>
+        </div>
+        <div class="w-px h-8 bg-warm-100 hidden md:block"></div>
+        <div class="text-center animate-on-scroll">
+          <p class="text-[11px] uppercase tracking-[0.2em] text-warm-300 font-medium">Especialidades</p>
+          <p class="text-sm font-bold text-warm-700 mt-1">6+</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="py-24 lg:py-32 relative bg-watermark">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+      <SectionHeading
+        label="Nossos Serviços"
+        title="Tratamentos que transformam sorrisos"
+        subtitle="Da prevenção à estética — cada tratamento é planejado com cuidado e executado com excelência."
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 stagger">
+        {services.map((service) => (
+          <ServiceCard
+            icon={service.icon}
+            title={service.shortTitle}
+            description={service.tagline}
+            href={`/servicos/${service.slug}`}
+          />
+        ))}
+      </div>
+
+      <div class="text-center mt-14 animate-on-scroll">
+        <a href="/servicos" class="inline-flex items-center gap-2 text-gold-600 font-semibold hover:text-gold-700 transition-colors link-underline text-sm tracking-wide">
+          Ver todos os serviços
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT PREVIEW ============ -->
+  <section class="py-24 lg:py-32 bg-warm-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="animate-on-scroll slide-left">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-gradient-to-br from-gold-100/50 to-transparent rounded-3xl"></div>
+            <div class="relative img-zoom rounded-2xl overflow-hidden">
+              <img
+                src="/images/gallery-1.jpg"
+                alt="Dra. Letícia Sales Soares na Ideal Centro Odontológico"
+                class="w-full aspect-[3/4] object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="animate-on-scroll slide-right">
+          <span class="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-gold-600 mb-4">
+            <span class="w-8 h-[1px] bg-gold-400"></span>
+            Sobre Nós
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-warm-900 leading-[1.1] mb-6">
+            Odontologia integrativa:<br />cuidado que vai<br />
+            <span class="gold-text">além do sorriso</span>
+          </h2>
+          <p class="text-warm-400 leading-relaxed mb-5">
+            Na Ideal Centro Odontológico, acreditamos que saúde bucal está diretamente conectada ao bem-estar emocional e físico. Cada atendimento é pensado de forma integrativa — considerando o paciente como um todo.
+          </p>
+          <p class="text-warm-400 leading-relaxed mb-8">
+            Com a Dra. Letícia Sales Soares à frente, criamos um ambiente acolhedor onde você se sente seguro para cuidar do que mais importa: o seu sorriso.
+          </p>
+
+          <!-- Stats -->
+          <div class="grid grid-cols-3 gap-6 mb-8">
+            <AnimatedCounter client:visible value={6} suffix="+" label="Especialidades" />
+            <AnimatedCounter client:visible value={5} suffix="★" label="Avaliação" />
+            <AnimatedCounter client:visible value={100} suffix="%" label="Dedicação" />
+          </div>
+
+          <a href="/sobre" class="inline-flex items-center gap-2 bg-warm-900 text-white font-semibold px-7 py-3.5 rounded-full hover:bg-warm-800 transition-all btn-press text-sm tracking-wide">
+            Conheça Nossa Clínica
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="py-24 lg:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        label="Nossa Clínica"
+        title="Um espaço pensado para você"
+        subtitle="Conheça o ambiente onde cuidado e sofisticação se encontram."
+      />
+
+      <Gallery client:visible />
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="py-24 lg:py-32 bg-warm-50 relative">
+    <!-- Background watermark -->
+    <div class="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] opacity-[0.02] pointer-events-none">
+      <img src="/images/bg-logo.jpg" alt="" class="w-full h-full object-contain" />
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+      <SectionHeading
+        label="Depoimentos"
+        title="O que nossos pacientes dizem"
+        subtitle="Histórias reais de quem confiou no nosso cuidado."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 stagger">
+        <TestimonialCard
+          name="Mariana S."
+          treatment="Lentes de Resina"
+          quote="Sempre tive vergonha de sorrir. Depois das lentes de resina, minha autoestima mudou completamente. A equipe é maravilhosa e super cuidadosa."
+        />
+        <TestimonialCard
+          name="Carlos R."
+          treatment="Implante Dentário"
+          quote="Perdi um dente há anos e evitava sorrir. O implante ficou tão natural que ninguém percebe. Recomendo de olhos fechados."
+        />
+        <TestimonialCard
+          name="Ana Paula L."
+          treatment="Ortodontia"
+          quote="Atendimento humanizado de verdade. Me senti acolhida desde a primeira consulta. Os resultados superaram minhas expectativas."
+        />
+      </div>
+
+      <div class="text-center mt-14 animate-on-scroll">
+        <a href="/depoimentos" class="inline-flex items-center gap-2 text-gold-600 font-semibold hover:text-gold-700 transition-colors link-underline text-sm tracking-wide">
+          Ver mais depoimentos
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="relative py-24 lg:py-32 bg-warm-900 overflow-hidden">
+    <!-- Subtle pattern -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, rgba(196,154,60,0.8) 1px, transparent 0); background-size: 40px 40px;"></div>
+    <!-- Watermark -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-[0.02] pointer-events-none">
+      <img src="/images/bg-logo.jpg" alt="" class="w-full h-full object-contain brightness-200" />
+    </div>
+
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+      <div class="animate-on-scroll">
+        <span class="inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-gold-400/60 mb-4">
+          Agende Agora
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1] mb-6">
+          Pronto para transformar<br />
+          <span class="bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent">o seu sorriso?</span>
+        </h2>
+        <p class="text-lg text-white/50 mb-10 max-w-xl mx-auto">
+          Agende uma avaliação sem compromisso com a Dra. Letícia. Vamos criar juntos o plano ideal para você.
+        </p>
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 bg-white text-warm-900 font-bold px-10 py-4 rounded-full hover:bg-gold-50 hover:shadow-lg hover:shadow-gold-500/10 transition-all btn-press text-[15px] tracking-wide"
+        >
+          <svg class="w-5 h-5 text-green-500" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+          </svg>
+          Agendar Minha Consulta
+        </a>
+        <p class="mt-5 text-[13px] text-white/25">Resposta em até 30 min • Sem compromisso</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCATION ============ -->
+  <section class="py-24 lg:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        label="Localização"
+        title="Fácil de chegar"
+        subtitle="No coração de Guaianases, com fácil acesso por transporte público."
+      />
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div class="animate-on-scroll slide-left">
+          <div class="luxury-card p-8 space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-11 h-11 bg-gold-50 rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-warm-800 mb-1">Endereço</h3>
+                <p class="text-sm text-warm-400">{ADDRESS}</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-11 h-11 bg-gold-50 rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-warm-800 mb-1">Horário</h3>
+                <p class="text-sm text-warm-400">Segunda a Sexta: 09h – 18h</p>
+                <p class="text-sm text-warm-400">Sábado: 09h – 14h</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-11 h-11 bg-green-50 rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-green-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                  <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-warm-800 mb-1">WhatsApp</h3>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="text-sm text-gold-600 hover:text-gold-700 font-semibold">
+                  {PHONE}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="animate-on-scroll slide-right">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-warm-100">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.583651731514!2d-46.4308445!3d-23.547472699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce65ae9cf71b99%3A0x4fdc2ea9e2d31c2c!2sIdeal%20Centro%20Odontol%C3%B3gico!5e0!3m2!1spt-BR!2sbr"
+              width="100%"
+              height="100%"
+              style="border:0"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Localização Ideal Centro Odontológico"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

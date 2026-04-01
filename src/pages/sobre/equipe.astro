@@ -1,0 +1,99 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { WHATSAPP_URL } from '../../data/services';
+---
+
+<Layout
+  title="Nossa Equipe"
+  description="Conheça a Dra. Letícia Sales Soares (CRO/SP 132568) e a equipe da Ideal Centro Odontológico. Profissionais dedicados ao seu sorriso."
+>
+
+  <section class="bg-warm-900 py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumb items={[
+        { label: 'Início', href: '/' },
+        { label: 'Sobre', href: '/sobre' },
+        { label: 'Nossa Equipe' },
+      ]} />
+
+      <div class="max-w-3xl animate-on-scroll">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+          Pessoas que cuidam<br />
+          <span class="bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent">de pessoas</span>
+        </h1>
+        <p class="mt-6 text-lg text-white/50 leading-relaxed">
+          Uma equipe dedicada, atualizada e apaixonada pelo que faz.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Featured: Dra. Letícia -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
+        <div class="animate-on-scroll slide-left">
+          <div class="relative">
+            <div class="absolute -inset-3 bg-gradient-to-br from-gold-100/40 to-transparent rounded-3xl"></div>
+            <div class="relative img-zoom rounded-2xl overflow-hidden">
+              <img
+                src="/images/gallery-1.jpg"
+                alt="Dra. Letícia Sales Soares"
+                class="w-full aspect-[3/4] object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="animate-on-scroll slide-right">
+          <span class="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-gold-600 mb-4">
+            <span class="w-8 h-[1px] bg-gold-400"></span>
+            Fundadora
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-warm-900 leading-tight mb-2">
+            Dra. Letícia Sales Soares
+          </h2>
+          <p class="text-gold-600 font-semibold mb-6">Cirurgiã-Dentista — CRO/SP 132568</p>
+
+          <p class="text-warm-400 leading-relaxed mb-4">
+            À frente da Ideal Centro Odontológico, a Dra. Letícia combina excelência técnica com um atendimento genuinamente humanizado. Sua abordagem integrativa considera cada paciente como um todo — corpo, mente e sorriso.
+          </p>
+          <p class="text-warm-400 leading-relaxed mb-6">
+            Com formação contínua e paixão pela odontologia estética e funcional, ela lidera uma equipe dedicada a transformar sorrisos e devolver confiança.
+          </p>
+
+          <div class="flex flex-wrap gap-2">
+            {['Ortodontia', 'Estética Dental', 'Harmonização Orofacial', 'Implantodontia'].map((spec) => (
+              <span class="text-xs bg-gold-50 text-gold-700 px-4 py-1.5 rounded-full font-medium border border-gold-100">
+                {spec}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20 bg-warm-900">
+    <div class="max-w-3xl mx-auto px-4 text-center animate-on-scroll">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+        Agende com a Dra. Letícia
+      </h2>
+      <p class="text-white/40 mb-8">
+        Atendimento particular, sem filas. Cuidado que faz a diferença.
+      </p>
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-white text-warm-900 font-bold px-8 py-4 rounded-full hover:bg-gold-50 transition-all btn-press"
+      >
+        Agendar Consulta
+      </a>
+    </div>
+  </section>
+
+</Layout>
