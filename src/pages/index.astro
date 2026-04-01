@@ -117,12 +117,12 @@ const schema = {
           </div>
         </div>
 
-        <!-- Hero Image -->
-        <div class="order-1 lg:order-2 animate-on-scroll slide-right lg:-mr-8">
-          <div class="relative">
-            <!-- Gold accent ring -->
-            <div class="absolute -inset-3 bg-gradient-to-br from-gold-200/30 via-transparent to-gold-100/20 rounded-[2rem] blur-sm"></div>
-            <div class="relative overflow-hidden rounded-[1.5rem] bg-white shadow-2xl shadow-warm-900/[0.06]">
+        <!-- Hero Image — 3D tilt container -->
+        <div class="order-1 lg:order-2 animate-on-scroll slide-right lg:-mr-8" style="perspective: 1000px;">
+          <div id="hero-tilt" class="relative transition-transform duration-200 ease-out" style="transform-style: preserve-3d;">
+            <!-- Gold accent ring — parallax layer (deeper) -->
+            <div class="absolute -inset-3 bg-gradient-to-br from-gold-200/30 via-transparent to-gold-100/20 rounded-[2rem] blur-sm" style="transform: translateZ(-20px);"></div>
+            <div class="relative overflow-hidden rounded-[1.5rem] bg-white shadow-2xl shadow-warm-900/[0.06]" style="transform: translateZ(0);">
               <img
                 src="/images/hero.webp"
                 alt="Dra. Letícia Sales Soares — Ideal Centro Odontológico"
@@ -133,8 +133,8 @@ const schema = {
                 fetchpriority="high"
               />
             </div>
-            <!-- Floating badge -->
-            <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg shadow-warm-900/[0.08] p-4 border border-warm-100 animate-on-scroll scale-in">
+            <!-- Floating badge — pops forward in 3D + float animation -->
+            <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg shadow-warm-900/[0.08] p-4 border border-warm-100 animate-on-scroll scale-in hero-float" style="transform: translateZ(40px);">
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-gold-50 rounded-xl flex items-center justify-center">
                   <svg class="w-5 h-5 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -152,6 +152,25 @@ const schema = {
       </div>
     </div>
   </section>
+
+  <!-- Hero 3D tilt — desktop only, lightweight -->
+  <script>
+    if (window.matchMedia('(min-width: 1024px)').matches) {
+      const card = document.getElementById('hero-tilt');
+      if (card) {
+        const parent = card.parentElement!;
+        parent.addEventListener('mousemove', (e) => {
+          const rect = parent.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.transform = `rotateY(${x * 8}deg) rotateX(${-y * 6}deg)`;
+        });
+        parent.addEventListener('mouseleave', () => {
+          card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+        });
+      }
+    }
+  </script>
 
   <!-- ============ TRUST BAR ============ -->
   <section class="py-10 border-y border-warm-100 bg-white">

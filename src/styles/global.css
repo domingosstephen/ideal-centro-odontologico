@@ -285,3 +285,36 @@ body {
   display: inline-block;
   font-variant-numeric: tabular-nums;
 }
+
+/* ============================================
+   Hero 3D Effects
+   ============================================ */
+.hero-float {
+  animation: heroFloat 4s ease-in-out infinite;
+}
+@keyframes heroFloat {
+  0%, 100% { transform: translateZ(40px) translateY(0); }
+  50% { transform: translateZ(40px) translateY(-10px); }
+}
+
+/* Subtle shine sweep on hero image */
+#hero-tilt .relative::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.08) 45%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.08) 55%,
+    transparent 60%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+#hero-tilt:hover .relative::after {
+  opacity: 1;
+}
