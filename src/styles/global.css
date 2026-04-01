@@ -216,7 +216,7 @@ body {
   transform: translate(-50%, -50%);
   width: 600px;
   height: 600px;
-  background: url('/images/bg-logo.jpg') center/contain no-repeat;
+  background: url('/images/bg-logo.webp') center/contain no-repeat;
   opacity: 0.03;
   pointer-events: none;
   z-index: 0;

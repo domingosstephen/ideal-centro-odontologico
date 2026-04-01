@@ -8,11 +8,11 @@ interface GalleryImage {
 }
 
 const images: GalleryImage[] = [
-  { src: '/images/gallery-1.jpg', alt: 'Dra. Letícia Sales Soares na Ideal Centro Odontológico', caption: 'Dra. Letícia Sales Soares' },
-  { src: '/images/gallery-2.jpg', alt: 'Consultório equipado com tecnologia moderna', caption: 'Tecnologia de Ponta' },
-  { src: '/images/gallery-3.jpg', alt: 'Sala de espera elegante com poltronas douradas', caption: 'Conforto e Elegância' },
-  { src: '/images/gallery-4.jpg', alt: 'Consultório com tela de entretenimento', caption: 'Ambiente Acolhedor' },
-  { src: '/images/gallery-5.jpg', alt: 'Fachada da Ideal Centro Odontológico', caption: 'Nossa Clínica' },
+  { src: '/images/gallery-1.webp', alt: 'Dra. Letícia Sales Soares na Ideal Centro Odontológico', caption: 'Dra. Letícia Sales Soares' },
+  { src: '/images/gallery-2.webp', alt: 'Consultório equipado com tecnologia moderna', caption: 'Tecnologia de Ponta' },
+  { src: '/images/gallery-3.webp', alt: 'Sala de espera elegante com poltronas douradas', caption: 'Conforto e Elegância' },
+  { src: '/images/gallery-4.webp', alt: 'Consultório com tela de entretenimento', caption: 'Ambiente Acolhedor' },
+  { src: '/images/gallery-5.webp', alt: 'Fachada da Ideal Centro Odontológico', caption: 'Nossa Clínica' },
 ];
 
 export default function Gallery() {
